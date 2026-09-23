@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="employeeApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee List - AngularJS</title>
+  <!-- AngularJS CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    body { font-family: sans-serif; margin: 30px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body ng-controller="EmployeeController">
+
+  <h2>Employee List</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- ng-repeat directive to iterate through employees -->
+      <tr ng-repeat="emp in employees">
+        <td>{{ $index + 1 }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.department }}</td>
+        <td>{{ emp.salary }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    // 1. Create AngularJS Module
+    var app = angular.module('employeeApp', []);
+
+    // 2. Define Controller with employee data
+    app.controller('EmployeeController', function($scope) {
+      $scope.employees = [
+        { name: "Rahul Sharma", department: "Engineering", salary: 75000 },
+        { name: "Pooja Patel", department: "Marketing", salary: 62000 },
+        { name: "Amit Kumar", department: "Finance", salary: 58000 },
+        { name: "Sneha Reddy", department: "HR", salary: 54000 }
+      ];
+    });
+  </script>
+
+</body>
+</html>

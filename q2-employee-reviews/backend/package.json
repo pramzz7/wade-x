@@ -1,0 +1,14 @@
+{
+  "name": "employee-reviews-backend",
+  "version": "1.0.0",
+  "description": "Employee Review Management System Backend (Node.js http module + MongoDB)",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "mongodb": "^6.5.0"
+  }
+}
