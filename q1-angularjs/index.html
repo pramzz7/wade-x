@@ -2,39 +2,99 @@
 <html lang="en" ng-app="employeeApp">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Employee List - AngularJS</title>
   <!-- AngularJS CDN -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <style>
-    body { font-family: sans-serif; margin: 30px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-    th { background-color: #f2f2f2; }
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f9;
+      color: #333333;
+    }
+    .container {
+      max-width: 850px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 25px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 0;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #3498db;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border: 1px solid #dddddd;
+    }
+    th {
+      background-color: #3498db;
+      color: #ffffff;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+    tr:nth-child(even) {
+      background-color: #f9fbfd;
+    }
+    tr:hover {
+      background-color: #f1f7fd;
+      transition: background-color 0.2s ease;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      background-color: #e8f4fd;
+      color: #2980b9;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .salary {
+      font-weight: 600;
+      color: #27ae60;
+    }
   </style>
 </head>
 <body ng-controller="EmployeeController">
 
-  <h2>Employee List</h2>
+  <div class="container">
+    <h2>Employee List</h2>
 
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Department</th>
-        <th>Salary</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- ng-repeat directive to iterate through employees -->
-      <tr ng-repeat="emp in employees">
-        <td>{{ $index + 1 }}</td>
-        <td>{{ emp.name }}</td>
-        <td>{{ emp.department }}</td>
-        <td>{{ emp.salary }}</td>
-      </tr>
-    </tbody>
-  </table>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ng-repeat directive to iterate through employees -->
+        <tr ng-repeat="emp in employees">
+          <td>{{ $index + 1 }}</td>
+          <td><strong>{{ emp.name }}</strong></td>
+          <td><span class="badge">{{ emp.department }}</span></td>
+          <td><span class="salary">₹ {{ emp.salary | number }}</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <script>
     // 1. Create AngularJS Module
