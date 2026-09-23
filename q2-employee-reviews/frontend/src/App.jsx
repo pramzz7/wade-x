@@ -4,7 +4,6 @@ function App() {
   const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
-    // Fetch employee reviews from Node.js server
     fetch('http://localhost:5000/employees')
       .then((res) => res.json())
       .then((data) => setEmployees(data))
@@ -13,7 +12,6 @@ function App() {
 
   return (
     <div className="container">
-      {/* Internal CSS */}
       <style>{`
         .container {
           max-width: 950px;
@@ -110,4 +108,3 @@ function App() {
 }
 
 export default App;
-

@@ -4,7 +4,6 @@ const { MongoClient } = require('mongodb');
 const client = new MongoClient('mongodb://127.0.0.1:27017');
 
 const server = http.createServer(async (req, res) => {
-  // Enable CORS so React frontend can fetch data
   res.setHeader('Access-Control-Allow-Origin', '*');
 
   if (req.url === '/employees' && req.method === 'GET') {

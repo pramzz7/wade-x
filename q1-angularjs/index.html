@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Employee List - AngularJS</title>
-  <!-- AngularJS CDN -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <style>
     body {
@@ -85,7 +84,6 @@
         </tr>
       </thead>
       <tbody>
-        <!-- ng-repeat directive to iterate through employees -->
         <tr ng-repeat="emp in employees">
           <td>{{ $index + 1 }}</td>
           <td><strong>{{ emp.name }}</strong></td>
@@ -97,10 +95,8 @@
   </div>
 
   <script>
-    // 1. Create AngularJS Module
     var app = angular.module('employeeApp', []);
 
-    // 2. Define Controller with employee data
     app.controller('EmployeeController', function($scope) {
       $scope.employees = [
         { name: "Rahul Sharma", department: "Engineering", salary: 75000 },
